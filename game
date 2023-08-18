@@ -1,0 +1,40 @@
+import random
+
+def hangman():
+    words = ['apple', 'banana', 'cherry', 'durian', 'elderberry', 'fig', 'grapefruit', 'honeydew']
+    word = random.choice(words)
+    guessed_letters = []
+    tries = 6
+
+    print("Welcome to Hangman!")
+    print("You have 6 tries to guess the word.")
+    print("_ " * len(word))
+
+    while tries > 0:
+        letter = input("Enter a letter: ")
+
+        if len(letter) != 1:
+            print("Please enter only one letter.")
+            continue
+
+        if letter in guessed_letters:
+            print("You have already guessed that letter. Try another one.")
+            continue
+        
+        if letter in word:
+            guessed_letters.append(letter)
+            guessed_word = ''.join([char if char in guessed_letters else '_' for char in word])
+            print(guessed_word)
+
+            if guessed_word == word:
+                print("Congratulations! You guessed the word!")
+                break
+        else:
+            tries -= 1
+            print(f"Wrong guess! Tries left: {tries}")
+
+            if tries == 0:
+                print("Sorry, you lost.")
+                print(f"The word was: {word}")
+
+hangman()
