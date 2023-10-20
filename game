@@ -18,7 +18,7 @@ def hangman():
             continue
 
         if letter in guessed_letters:
-            print("You have already guessed that letter. Try another one.")
+            print("You have already guessed that letter - Try another one.")
             continue
         
         if letter in word:
