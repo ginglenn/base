@@ -7,7 +7,7 @@ def hangman():
     tries = 6
 
     print("Welcome to Hangman!")
-    print("You have 6 tries to guess the word.")
+    print("You have 6 tries to guess the word")
     print("_ " * len(word))
 
     while tries > 0:
